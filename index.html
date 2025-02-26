@@ -205,6 +205,124 @@
         .week-card.active .week-content {
             display: block;
         }
+            
+        /* Assignments Section Styles */
+        #assignments {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        }
+
+        .assignment-week-container {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .assignment-week-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .assignment-week-content {
+            padding: 20px;
+            background-color: #fff;
+            transition: max-height 0.3s ease-out;
+            max-height: 1000px;
+            overflow: hidden;
+        }
+
+        .assignment-week-content.collapsed {
+            max-height: 0;
+            padding: 0 20px;
+        }
+
+        .upload-section {
+            background-color: #f8f9fa;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .upload-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .assignment-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .assignment-item {
+            background-color: white;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .file-icon {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .file-actions button {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .file-actions button:hover {
+            color: #0056b3;
+        }
+
+        .empty-text {
+            color: #999;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+        }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
 
         /* Gallery Section */
         #gallery {
@@ -384,29 +502,6 @@
                 <p>
                     As a passionate and driven Computer Science & Engineering student at GEU (CSE'27), I am constantly honing my skills in <strong>Data Structures, Algorithms, and Full-Stack Development (MERN)</strong> to build scalable and efficient solutions. With a problem-solving mindset, I have achieved <strong>LeetCode Knight</strong> status and hold a <strong>3-star rating on CodeChef</strong>, consistently pushing myself to tackle complex coding challenges. My interests lie in designing robust software solutions, optimizing performance, and leveraging modern technologies to develop impactful applications. Beyond competitive programming, I enjoy working on real-world projects, collaborating with peers, and exploring innovative approaches to software development. I believe in continuous learning and adaptability, always seeking opportunities to expand my knowledge and contribute to meaningful projects. Whether it's refining algorithms, developing seamless user experiences, or exploring emerging technologies, I am eager to grow as a developer and make a lasting impact in the tech industry.
                 </p>
-
-                <!-- Video Section -->
-                <div class="video-section">
-                    <h3 class="video-title">Introduction Video</h3>
-                    <div class="video-container">
-                        <!-- YouTube Option -->
-                        <!--iframe 
-                            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                            title="Introduction Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                        -->
-                        <!-- Local Video Option (Uncomment to use) -->
-                        
-                        <video controls poster="assets/images/video-thumbnail.jpg">
-                            <source src="assets/video compressed.mp4" type="video/mp4">
-                            <source src="assets/videos/intro.webm" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                        
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -458,6 +553,135 @@
                     </div>
                     <div class="week-content">
                         <p>[Week 5 summary will go here]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments">
+        <div class="container">
+            <h2>My Assignments</h2>
+            
+            <!-- Week 1 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" onclick="toggleAssignmentWeek(1)">
+                    <h3>Week 1</h3>
+                    <span class="arrow" id="assignment-arrow-1">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-1">
+                    <h3>Assignments</h3>
+                    <div id="week1-assignments">
+                        <h3 class="video-title">Introduction Video</h3>
+                        <div class="video-container">
+                            <video controls poster="assets/images/video-thumbnail.jpg">
+                                <source src="assets/video compressed.mp4" type="video/mp4">
+                                <source src="assets/videos/intro.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <p>Upload your Week 1 assignments here</p>
+                        <button class="upload-button" onclick="simulateUpload(1)">Upload Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" onclick="toggleAssignmentWeek(2)">
+                    <h3>Week 2</h3>
+                    <span class="arrow" id="assignment-arrow-2">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-2">
+                    <h3>Assignments</h3>
+                    <div id="week2-assignments">
+                        <ul class="assignment-list">
+                            <li class="assignment-item">
+                                <div>
+                                    <span class="file-icon">🖼️</span>
+                                    <a href="assets/image1.jpg" target="_blank">
+                                        <img src="assets/image1.jpg" alt="Week 2 Assignment 1" width="150">
+                                    </a>
+                                    <a href="assets/image2.jpg" target="_blank">
+                                        <img src="assets/image2.jpg" alt="Week 2 Assignment 2" width="150">
+                                    </a>
+                                </div>
+                                <div class="file-actions">
+                                    <button onclick="window.open('assets/image1.jpg', '_blank')">👁️ View Image 1</button>
+                                    <button onclick="window.open('assets/image2.jpg', '_blank')">👁️ View Image 2</button>
+                                    <a href="assets/image1.jpg" download>
+                                        <button>⬇️ Download Image 1</button>
+                                    </a>
+                                    <a href="assets/image2.jpg" download>
+                                        <button>⬇️ Download Image 2</button>
+                                    </a>
+                                    <button onclick="this.parentElement.parentElement.remove()">🗑️ Delete</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="upload-section">
+                        <p>Upload your Week 2 assignments here</p>
+                        <button class="upload-button" onclick="simulateUpload(2)">Upload Files</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Week 3 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" onclick="toggleAssignmentWeek(3)">
+                    <h3>Week 3</h3>
+                    <span class="arrow" id="assignment-arrow-3">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-3">
+                    <h3>Assignments</h3>
+                    <div id="week3-assignments">
+                        <p class="empty-text">No assignments uploaded yet.</p>
+                    </div>
+                    <div class="upload-section">
+                        <p>Upload your Week 3 assignments here</p>
+                        <button class="upload-button" onclick="simulateUpload(3)">Upload Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" onclick="toggleAssignmentWeek(4)">
+                    <h3>Week 4</h3>
+                    <span class="arrow" id="assignment-arrow-4">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-4">
+                    <h3>Assignments</h3>
+                    <div id="week4-assignments">
+                        <p class="empty-text">No assignments uploaded yet.</p>
+                    </div>
+                    <div class="upload-section">
+                        <p>Upload your Week 4 assignments here</p>
+                        <button class="upload-button" onclick="simulateUpload(4)">Upload Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" onclick="toggleAssignmentWeek(5)">
+                    <h3>Week 5</h3>
+                    <span class="arrow" id="assignment-arrow-5">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-5">
+                    <h3>Assignments</h3>
+                    <div id="week5-assignments">
+                        <p class="empty-text">No assignments uploaded yet.</p>
+                    </div>
+                    <div class="upload-section">
+                        <p>Upload your Week 5 assignments here</p>
+                        <button class="upload-button" onclick="simulateUpload(5)">Upload Files</button>
                     </div>
                 </div>
             </div>
@@ -540,6 +764,54 @@
                 card.classList.toggle('active');
             });
         });
+
+        // Add toggle function for assignment weeks
+        function toggleAssignmentWeek(weekNum) {
+            const content = document.getElementById(`assignment-week-${weekNum}`);
+            const arrow = document.getElementById(`assignment-arrow-${weekNum}`);
+            
+            content.classList.toggle('collapsed');
+            arrow.classList.toggle('rotate');
+        }
+
+        // Simulate file upload
+        function simulateUpload(weekNum) {
+            const fileTypes = ['PDF', 'DOCX', 'PPTX', 'ZIP'];
+            const fileNames = [
+                'Assignment_Report', 
+                'Project_Submission', 
+                'Research_Paper', 
+                'Lab_Exercise', 
+                'Reflection_Document'
+            ];
+            
+            const randomFile = `${fileNames[Math.floor(Math.random() * fileNames.length)]}_Week${weekNum}.${fileTypes[Math.floor(Math.random() * fileTypes.length)]}`;
+            
+            const assignmentsDiv = document.getElementById(`week${weekNum}-assignments`);
+            
+            // Clear "no assignments" message if it exists
+            if (assignmentsDiv.innerHTML.includes('No assignments uploaded yet')) {
+                assignmentsDiv.innerHTML = '<ul class="assignment-list"></ul>';
+            }
+            
+            const assignmentsList = assignmentsDiv.querySelector('.assignment-list');
+            
+            const newAssignment = document.createElement('li');
+            newAssignment.className = 'assignment-item';
+            newAssignment.innerHTML = `
+                <div>
+                    <span class="file-icon">📄</span>
+                    ${randomFile}
+                </div>
+                <div class="file-actions">
+                    <button onclick="alert('Viewing file: ${randomFile}')">👁️ View</button>
+                    <button onclick="alert('Downloading file: ${randomFile}')">⬇️ Download</button>
+                    <button onclick="this.parentElement.parentElement.remove()">🗑️ Delete</button>
+                </div>
+            `;
+            
+            assignmentsList.appendChild(newAssignment);
+        }
     </script>
 </body>
 </html>
