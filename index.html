@@ -4,363 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek's Portfolio</title>
-    <style>
-        /* Modern CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-
-        /* Navigation Styles */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #007bff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 20px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* About Section with Video */
-        #about {
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-        }
-
-        .about-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUp 1s forwards;
-        }
-
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .video-section {
-            margin-top: 2rem;
-            padding: 1rem 0;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            background: #000;
-        }
-
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        /* Heading Styles */
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: #007bff;
-            border-radius: 2px;
-        }
-
-        /* Learning Section */
-        #learning {
-            background: #f8f9fa;
-        }
-
-        .week-container {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .week-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .week-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .week-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .week-content {
-            display: none;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
-
-        .week-card.active .week-content {
-            display: block;
-        }
-
-        /* Gallery Section */
-        #gallery {
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        /* Projects Section */
-        #projects {
-            background: #fff;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: #0056b3;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .contact-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-
-        .contact-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-
-            .about-content,
-            .contact-container {
-                padding: 2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .video-title {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
@@ -372,6 +16,7 @@
                 <a href="#gallery">Gallery</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
+                <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
             </div>
         </div>
     </nav>
@@ -379,33 +24,13 @@
     <section id="about">
         <div class="container">
             <div class="about-content">
-                <h2>About Me</h2>
-                <h3>Abhishek kumar</h3>
-                <p>
-                    As a passionate and driven Computer Science & Engineering student at GEU (CSE'27), I am constantly honing my skills in <strong>Data Structures, Algorithms, and Full-Stack Development (MERN)</strong> to build scalable and efficient solutions. With a problem-solving mindset, I have achieved <strong>LeetCode Knight</strong> status and hold a <strong>3-star rating on CodeChef</strong>, consistently pushing myself to tackle complex coding challenges. My interests lie in designing robust software solutions, optimizing performance, and leveraging modern technologies to develop impactful applications. Beyond competitive programming, I enjoy working on real-world projects, collaborating with peers, and exploring innovative approaches to software development. I believe in continuous learning and adaptability, always seeking opportunities to expand my knowledge and contribute to meaningful projects. Whether it's refining algorithms, developing seamless user experiences, or exploring emerging technologies, I am eager to grow as a developer and make a lasting impact in the tech industry.
-                </p>
-
-                <!-- Video Section -->
-                <div class="video-section">
-                    <h3 class="video-title">Introduction Video</h3>
-                    <div class="video-container">
-                        <!-- YouTube Option -->
-                        <!--iframe 
-                            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                            title="Introduction Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                        -->
-                        <!-- Local Video Option (Uncomment to use) -->
-                        
-                        <video controls poster="assets/images/video-thumbnail.jpg">
-                            <source src="assets/video compressed.mp4" type="video/mp4">
-                            <source src="assets/videos/intro.webm" type="video/webm">
-                            Your browser does not support the video tag.
-                        </video>
-                        
-                    </div>
+                <div class="profile-image">
+                    <img src="assets/profile.jpg" alt="Abhishek Kumar">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <h3>Abhishek Kumar</h3>
+                    <p>As a passionate and driven Computer Science & Engineering student at GEHU (CSE'27), I am constantly honing my skills in <strong>Data Structures, Algorithms, and Full-Stack Development (MERN)</strong> to build scalable and efficient solutions. With a problem-solving mindset, I have achieved <strong>LeetCode Knight</strong> status and hold a <strong>2-star rating on CodeChef</strong>, consistently pushing myself to tackle complex coding challenges. My interests lie in designing robust software solutions, optimizing performance, and leveraging modern technologies to develop impactful applications. Beyond competitive programming, I enjoy working on real-world projects, collaborating with peers, and exploring innovative approaches to software development. I believe in continuous learning and adaptability, always seeking opportunities to expand my knowledge and contribute to meaningful projects. Whether it's refining algorithms, developing seamless user experiences, or exploring emerging technologies, I am eager to grow as a developer and make a lasting impact in the tech industry.</p>
                 </div>
             </div>
         </div>
@@ -460,6 +85,170 @@
                         <p>[Week 5 summary will go here]</p>
                     </div>
                 </div>
+                <div class="week-card">
+                    <div class="week-header">
+                        <h3>Week 6</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="week-content">
+                        <p>[Week 6 summary will go here]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assignments">
+        <div class="container">
+            <h2>My Assignments</h2>
+            
+            <!-- Week 1 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="1">
+                    <h3>Week 1</h3>
+                    <span class="arrow" id="assignment-arrow-1">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-1">
+                    <h3>Introduction Video</h3>
+                    <div class="video-container">
+                        <video controls poster="assets/images/video-thumbnail.jpg">
+                            <source src="assets/video compressed.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="2">
+                    <h3>Week 2</h3>
+                    <span class="arrow" id="assignment-arrow-2">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-2">
+                    <h3>Self Profiling Sheet</h3>
+                    <div class="assignment-list">
+                        <a href="assets/PESE-400 Self Profiling Sheet.pdf" target="_blank" class="assignment-item">
+                            <span class="file-icon">📄</span>
+                            PESE-400 Self Profiling Sheet.pdf
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="3">
+                    <h3>Week 3</h3>
+                    <span class="arrow" id="assignment-arrow-3">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-3">
+                    <h3>Movie Review: The Pursuit of Happyness</h3>
+                    <div class="movie-review">
+                        <p>The Pursuit of Happyness is a heart-touching and powerful film that follows the true story of Chris Gardner, a struggling salesman who faces immense personal and financial challenges while raising his young son. Set in a tough phase of Gardner's life, the movie highlights the harsh realities of poverty, the sacrifices a parent makes, and the determination it takes to survive and succeed.</p>
+                        <p>Will Smith's portrayal of Chris is both raw and inspiring. His chemistry with his real-life son, Jaden Smith, brings an emotional depth that makes the audience feel every high and low. Despite losing his home, his job, and almost his hope, Chris never gives up. His journey from sleeping in shelters to earning a job as a stockbroker is both heartbreaking and motivating.</p>
+                        <p>The film's message is clear: success doesn't come easy. It takes patience, effort, and the courage to keep going when everything seems to be falling apart. It's not just a story of success, but of persistence, belief, and the true meaning of happiness.</p>
+                        <h4>🌟 Q&A Reflection</h4>
+                        <h5>1. Your Favourite Dialogue and Why?</h5>
+                        <p>"Don't ever let somebody tell you… you can't do something. Not even me."</p>
+                        <p>This line stands out because it represents belief in one's dreams. Chris tells his son that even when others doubt you, including those closest to you, never stop believing in your goals. It's a powerful lesson on self-confidence and staying focused, no matter what others say.</p>
+                        <h5>2. Learning to Take Away from the Movie</h5>
+                        <ul>
+                            <li>Never give up, no matter how tough life gets.</li>
+                            <li>Hard work eventually pays off, even if the results take time.</li>
+                            <li>Take responsibility for your life, just like Chris did, instead of blaming others.</li>
+                            <li>Value your loved ones and never compromise on relationships, even during tough times.</li>
+                        </ul>
+                        <h5>3. Related Concepts You've Learned in the Classroom</h5>
+                        <ul>
+                            <li>Maslow's Hierarchy of Needs: Chris struggles with basic needs first before reaching his goals and self-fulfillment.</li>
+                            <li>Emotional Intelligence: He shows great emotional control and empathy, especially while raising his son under pressure.</li>
+                            <li>Decision-Making & Risk Management: Chris makes bold career moves and takes calculated risks with a clear long-term vision.</li>
+                            <li>Motivation Theories (like Intrinsic Motivation): His drive comes from within, especially his love for his son and dream of a better life.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="4">
+                    <h3>Week 4</h3>
+                    <span class="arrow" id="assignment-arrow-4">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-4">
+                    <h3>Speech Video</h3>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="assets/speech.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="5">
+                    <h3>Week 5</h3>
+                    <span class="arrow" id="assignment-arrow-5">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-5">
+                    <h3>Week 5 Assignment</h3>
+                    <div class="assignment-list">
+                        <a href="assets/week5_assignment.pdf" target="_blank" class="assignment-item">
+                            <span class="file-icon">📄</span>
+                            week5_assignment.pdf
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="assignment-week-container">
+                <div class="assignment-week-header" data-week="6">
+                    <h3>Week 6</h3>
+                    <span class="arrow" id="assignment-arrow-6">▼</span>
+                </div>
+                <div class="assignment-week-content" id="assignment-week-6">
+                    <h3>25 Lessons from PESE Lectures</h3>
+                    <div class="lessons-content">
+                        <h4>🔧 Professional & Employability Skills</h4>
+                        <ol>
+                            <li>Resume Building – Learned to create clear, concise, and customized resumes tailored to job roles.</li>
+                            <li>Effective Communication – Importance of verbal and non-verbal communication in workplace success.</li>
+                            <li>Email Etiquette – Writing professional emails using formal tone, structure, and clarity.</li>
+                            <li>Interview Preparation – Techniques for answering HR and technical questions confidently.</li>
+                            <li>Group Discussions – How to present ideas, listen actively, and build teamwork in GDs.</li>
+                            <li>Personal Branding – Managing LinkedIn profiles and creating a strong professional identity.</li>
+                            <li>Time Management – Prioritizing tasks using methods like Eisenhower Matrix or Pomodoro.</li>
+                            <li>Goal Setting – SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) for career planning.</li>
+                            <li>Adaptability – Embracing change and being flexible in new environments.</li>
+                            <li>Critical Thinking – Approaching problems logically and analytically.</li>
+                        </ol>
+                        <h4>🛠️ Skill Enhancement & Technical Knowledge</h4>
+                        <ol start="11">
+                            <li>Basic Office Tools – Mastery in MS Excel, Word, PowerPoint for workplace use.</li>
+                            <li>Online Tools – Use of productivity platforms like Google Workspace, Trello, Notion.</li>
+                            <li>Presentation Skills – Structuring and delivering effective presentations.</li>
+                            <li>Mock Interviews – Practice rounds to simulate real-life interview experiences.</li>
+                            <li>Data Interpretation – Reading graphs, charts, and making decisions based on data.</li>
+                            <li>Problem-Solving Techniques – Applying structured approaches to real-world problems.</li>
+                            <li>Basic Financial Literacy – Understanding CTC, in-hand salary, taxes, and budgeting.</li>
+                            <li>Digital Literacy – Safe and effective use of digital tools and platforms.</li>
+                            <li>Workplace Ethics – Importance of integrity, punctuality, and responsibility at work.</li>
+                            <li>Industry Expectations – Understanding what companies look for in fresh graduates.</li>
+                        </ol>
+                        <h4>💡 Personal Development Lessons</h4>
+                        <ol start="21">
+                            <li>Self-Awareness – Identifying personal strengths and weaknesses for improvement.</li>
+                            <li>Confidence Building – Speaking in front of peers, handling criticism positively.</li>
+                            <li>Networking Skills – Building meaningful professional connections online/offline.</li>
+                            <li>Learning Agility – Staying open to continuous learning and self-upskilling.</li>
+                            <li>Growth Mindset – Believing in the ability to learn and grow through effort.</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -467,17 +256,7 @@
     <section id="gallery">
         <div class="container">
             <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Professional photo 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Professional photo 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/400/300" alt="Professional photo 3">
-                </div>
-            </div>
+            <p style="text-align: center; margin: 2rem 0;">Gallery will be updated soon.</p>
         </div>
     </section>
 
@@ -486,17 +265,39 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
+                    <div class="project-image">
+                        Project image coming soon...
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 1</h3>
-                        <p class="project-description">[Project description will go here]</p>
-                        <a href="#" class="project-link">Learn More</a>
+                        <h3 class="project-title">Financial Fraud Detection System</h3>
+                        <p class="project-description">A robust MERN-based system that applies advanced fraud detection logic using threshold anomalies, statistical methods, graph theory (Floyd-Warshall), pattern matching, time-based checks, IP/geolocation heuristics, and transaction clustering to prevent financial abuse. The dashboard showcases anomalies with dynamic coloring and reports.</p>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        Project image coming soon...
+                    </div>
                     <div class="project-content">
-                        <h3 class="project-title">Project 2</h3>
-                        <p class="project-description">[Project description will go here]</p>
-                        <a href="#" class="project-link">Learn More</a>
+                        <h3 class="project-title">Facial Emotions Recognition System</h3>
+                        <p class="project-description">A deep learning system using TensorFlow, Keras, OpenCV, and DeepFace to detect facial expressions in real-time, classifying emotions like happy, sad, angry, and more with high accuracy from webcam or image input.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        Project image coming soon...
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Lunar Lander</h3>
+                        <p class="project-description">AI-powered lunar landing simulation using Double Deep Q-Network (DDQN) in Gymnasium's LunarLander-v3 environment. It showcases reinforcement learning with a goal of achieving high landing scores via reward optimization, neural control policy, and smart descent.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        Project image coming soon...
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">This E-Portfolio</h3>
+                        <p class="project-description">A fully responsive portfolio showcasing all academic, technical, and creative work of Abhishek Kumar – designed to demonstrate employability, skill enhancement, and project versatility.</p>
                     </div>
                 </div>
             </div>
@@ -510,15 +311,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📧</span>
-                        <a href="mailto:[your-email]" class="contact-link">abhishekkumar171105@gmail.com</a>
+                        <a href="mailto:abhishekkumar171105@gmail.com" class="contact-link">abhishekkumar171105@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <span>📱</span>
-                        <span>9557741183</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>Lane 9A , Near GEU , Dehradun</span>
+                        <span>+91-9557741183</span>
                     </div>
                     <div class="contact-item">
                         <span>💻</span>
@@ -529,17 +326,25 @@
                         <a href="https://www.linkedin.com/in/abhishek-kumar-b5036b224/" class="contact-link">My Linkedin</a>
                     </div>
                 </div>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <script>
-        // Add click handlers for week cards
-        document.querySelectorAll('.week-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('active');
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
